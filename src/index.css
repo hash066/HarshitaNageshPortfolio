@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic Portfolio Design System - All colors, gradients, fonts, etc defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light Mode - Clean Professional Theme */
+    --background: 0 0% 100%;
+    --foreground: 220 30% 10%;
+    
+    /* Neon Color Palette */
+    --cyber-blue: 194 100% 45%;
+    --cyber-green: 150 80% 40%;
+    --cyber-purple: 280 80% 50%;
+    --cyber-pink: 320 90% 55%;
+    
+    /* Interactive States */
+    --cyber-blue-glow: 194 100% 60%;
+    --cyber-green-glow: 150 80% 55%;
+    --cyber-purple-glow: 280 80% 65%;
+    
+    /* Surfaces & Panels */
+    --surface: 220 20% 96%;
+    --surface-elevated: 220 20% 98%;
+    --panel: 220 15% 94%;
+    --panel-glow: 220 10% 92%;
+    
+    /* Semantic Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 10%;
+
+    --primary: 194 100% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 90%;
+    --secondary-foreground: 220 30% 10%;
+
+    --muted: 220 10% 92%;
+    --muted-foreground: 220 20% 40%;
+
+    --accent: 150 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 85%;
+    --input: 220 15% 90%;
+    --ring: 194 100% 45%;
+
+    --radius: 0.5rem;
+    
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--cyber-blue)), hsl(var(--cyber-purple)));
+    --gradient-panel: linear-gradient(145deg, hsl(var(--surface)), hsl(var(--surface-elevated)));
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--cyber-blue-glow) / 0.2), transparent 70%);
+    
+    /* Animations */
+    --transition-cyber: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --glow-shadow: 0 0 20px hsl(var(--cyber-blue) / 0.3);
+    --glow-shadow-accent: 0 0 20px hsl(var(--accent) / 0.3);
+  }
+
+  .dark {
+    /* Cyber Dark Theme */
+    --background: 220 30% 3%;
+    --foreground: 190 100% 90%;
+    
+    /* Neon Color Palette */
+    --cyber-blue: 194 100% 50%;
+    --cyber-green: 150 100% 50%;
+    --cyber-purple: 280 100% 50%;
+    --cyber-pink: 320 100% 60%;
+    
+    /* Interactive States */
+    --cyber-blue-glow: 194 100% 70%;
+    --cyber-green-glow: 150 100% 70%;
+    --cyber-purple-glow: 280 100% 70%;
+    
+    /* Surfaces & Panels */
+    --surface: 220 25% 8%;
+    --surface-elevated: 220 20% 12%;
+    --panel: 220 15% 15%;
+    --panel-glow: 220 10% 20%;
+    
+    /* Semantic Colors */
+    --card: 220 25% 8%;
+    --card-foreground: 190 100% 90%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 190 100% 90%;
+
+    --primary: 194 100% 50%;
+    --primary-foreground: 220 30% 3%;
+
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 190 100% 90%;
+
+    --muted: 220 10% 20%;
+    --muted-foreground: 190 50% 60%;
+
+    --accent: 150 100% 50%;
+    --accent-foreground: 220 30% 3%;
+
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 220 30% 3%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 15%;
+    --ring: 194 100% 50%;
+    
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--cyber-blue)), hsl(var(--cyber-purple)));
+    --gradient-panel: linear-gradient(145deg, hsl(var(--surface)), hsl(var(--surface-elevated)));
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--cyber-blue-glow) / 0.3), transparent 70%);
+    
+    /* Animations */
+    --transition-cyber: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --glow-shadow: 0 0 20px hsl(var(--cyber-blue) / 0.5);
+    --glow-shadow-accent: 0 0 20px hsl(var(--accent) / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono overflow-x-hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  :root body {
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(var(--cyber-blue) / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--cyber-purple) / 0.08) 0%, transparent 50%);
+  }
+  
+  .dark body {
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(var(--cyber-blue) / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--cyber-purple) / 0.05) 0%, transparent 50%);
+  }
+  
+  /* Cyber Grid Background */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  /* Glow Effects */
+  .glow-blue {
+    box-shadow: var(--glow-shadow);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--glow-shadow-accent);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.7);
+  }
+  
+  /* Smooth Scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--surface));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
+}
