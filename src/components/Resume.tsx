@@ -8,7 +8,7 @@ const Resume = () => {
     {
       degree: "Bachelor of Technology in Computer Science and Engineering",
       school: "R.V. College of Engineering, Bangalore",
-      period: "2021 - 2025",
+      period: "2024 - 2028",
       gpa: "9.2/10",
       highlights: ["Specialization in AI/ML", "Active participant in coding competitions"]
     }
@@ -19,11 +19,11 @@ const Resume = () => {
     "TypeScript", "React", "Next.js", "Node.js", "MongoDB", "Git", "Docker", "AWS"
   ];
 
-  const resumeUrl = 'https://drive.google.com/file/d/1KkZ9xJUuGYCUHjaqabkLWSKUxDgoHeCx/view?usp=sharing';
-  
+  const resumeUrl = 'https://drive.google.com/file/d/1qgyRe3QqNAaZCvDwDOg6ihKTOZqlOZt1/view?usp=sharing';
+
   const handleDownloadPDF = () => {
     // For Google Drive links, we can use the export link to force download
-    const fileId = '1KkZ9xJUuGYCUHjaqabkLWSKUxDgoHeCx';
+    const fileId = '1qgyRe3QqNAaZCvDwDOg6ihKTOZqlOZt1';
     const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
     const link = document.createElement('a');
     link.href = downloadUrl;
