@@ -435,11 +435,11 @@ function transformSource(src, filename) {
                         !shouldTag(semanticName))) return;
                 
                 const { line, column } = node.loc.start;
-                let orchidsId = `${rel}:${line}:${column}`;
+                let editId = `${rel}:${line}:${column}`;
                 
                 // Enhance the ID with context if we have map information
                 if (mapContext) {
-                    orchidsId += `@${mapContext.arrayName}`;
+                    editId += `@${mapContext.arrayName}`;
                 }
                 
                 // 🔍 Append referenced variable locations for simple identifier references in props
@@ -451,7 +451,7 @@ function transformSource(src, filename) {
                         const varInfo = variables.get(refName);
                         
                         if (varInfo) {
-                            orchidsId += `@${refName}`;
+                            editId += `@${refName}`;
                         }
                     }
                 });
@@ -461,7 +461,7 @@ function transformSource(src, filename) {
                     ms.appendLeft(node.name.end, ` data-map-index={${mapContext.indexVarName}}`);
                 }
                 
-                ms.appendLeft(node.name.end, ` data-orchids-id="${orchidsId}" data-orchids-name="${semanticName}"`);
+                ms.appendLeft(node.name.end, ` data-edit-id="${editId}" data-edit-name="${semanticName}"`);
                 mutated = true;
             },
         });
